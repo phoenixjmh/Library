@@ -1,0 +1,19 @@
+.container{
+    background:purple;
+    display:flex;
+    width:100vw;
+    height:100vh;
+    justify-content: space-evenly;
+}
+.card{
+    background:yellow;
+    width:10rem;
+    height:15rem;
+    border:5px solid black;
+    border-radius:1rem;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    
+}
