@@ -5,24 +5,23 @@
 const container = document.querySelector(".container");
 let library = [];
 let bookIndex = 0;
-const startButton = document.querySelector('#add-first');
+const startButton = document.querySelector("#add-first");
 
 function Book(title, author, bookID) {
   this.author = author;
   this.title = title;
   this.bookID = bookID;
 }
-startButton.onclick=()=>{
-  startButton.parentElement.remove();
-  createNewBookForm();
-}
+
 function deleteBook(buttonList) {
-  buttonList.forEach( i=> {
+  buttonList.forEach((i) => {
     i.addEventListener("click", () => {
       library = library.filter(
         (item) =>
-        
-          item.bookID != i.parentElement.parentElement.id.slice(i.parentElement.parentElement.id.length - 1)
+          item.bookID !=
+          i.parentElement.parentElement.id.slice(
+            i.parentElement.parentElement.id.length - 1
+          )
       );
       i.parentElement.parentElement.remove();
     });
@@ -30,19 +29,17 @@ function deleteBook(buttonList) {
 }
 function drawBook(book) {
   const cover = document.createElement("div");
-  const cardButtonPanel = document.createElement('div');
-  const readButtonPanel = document.createElement('div');
-  readButtonPanel.className='read-button-panel';
-  
-  const readButtonSwitch = document.createElement('label');
-  readButtonSwitch.className = 'switch';
-  
-  
-  const readButtonSlider = document.createElement('span');
-  readButtonSlider.className='slider round';
-  
-  
-  cardButtonPanel.className = 'card-button-panel';
+  const cardButtonPanel = document.createElement("div");
+  const readButtonPanel = document.createElement("div");
+  readButtonPanel.className = "read-button-panel";
+
+  const readButtonSwitch = document.createElement("label");
+  readButtonSwitch.className = "switch";
+
+  const readButtonSlider = document.createElement("span");
+  readButtonSlider.className = "slider round";
+
+  cardButtonPanel.className = "card-button-panel";
   const bookTitle = document.createElement("h4");
   const bookAuthor = document.createElement("h4");
   const deleteButton = document.createElement("button");
@@ -83,39 +80,28 @@ function addBookToLibrary(title, author, bookID) {
 function createNewBookForm() {
   const formContainer = document.createElement("div");
   formContainer.className = "form-container";
-
   const formElement = document.createElement("form");
   formElement.setAttribute("action", "post");
-
   const formList = document.createElement("ul");
-
   const listItem1 = document.createElement("li");
-
   const authorLabel = document.createElement("label");
   authorLabel.setAttribute("for", "author-field");
   authorLabel.textContent = "Author";
-
   const authorInput = document.createElement("input");
   authorInput.setAttribute("type", "text");
   authorInput.id = "author-field";
-
   const listItem2 = document.createElement("li");
-
   const titleLabel = document.createElement("label");
   titleLabel.setAttribute("for", "title-label");
   titleLabel.textContent = "Title";
-
   const titleInput = document.createElement("input");
   titleInput.setAttribute("type", "text");
   titleInput.id = "title-field";
-
   const addButton = document.createElement("button");
   addButton.id = "add";
   addButton.textContent = "+ Add Book To Library";
-
-  const buttonContainer = document.createElement('div');
-  buttonContainer.className = 'button-container';
-
+  const buttonContainer = document.createElement("div");
+  buttonContainer.className = "button-container";
   document.body.insertBefore(formContainer, container);
   formContainer.appendChild(formElement);
   formElement.appendChild(formList);
@@ -125,7 +111,6 @@ function createNewBookForm() {
   listItem1.appendChild(authorInput);
   listItem2.appendChild(titleLabel);
   listItem2.appendChild(titleInput);
-
   formContainer.appendChild(buttonContainer);
   buttonContainer.appendChild(addButton);
 
@@ -133,24 +118,12 @@ function createNewBookForm() {
     const newAuthor = authorInput.value;
     const newName = titleInput.value;
     event.preventDefault();
-
     addBookToLibrary(newName, newAuthor, (bookIndex += 1));
     authorInput.value = "";
     titleInput.value = "";
   };
 }
-
-const temptitle = 'title';
-const tempauthor = 'author';
-let counter = 0;
-
-// createNewBookForm();
-// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
-// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
-// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
-// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
-
-
-
-
-
+startButton.onclick = () => {
+  startButton.parentElement.remove();
+  createNewBookForm();
+};

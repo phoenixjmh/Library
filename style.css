@@ -1,157 +1,333 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family:'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-body{
-    font-size:3vw;
-    width:100vw;
-    height:100vh;
-    background-color:rgb(226, 219, 226);
+body {
+  font-size: 3vw;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(226, 219, 226);
 }
 
-.container{
-    display:flex;
-    justify-content: space-evenly;
-    align-items:center;
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.card{
-    background:yellow;
-    width:20%;
-    height:30%;
-    border:2px solid black;
-    border-radius:.3rem;
-    display:flex;
-    flex-direction:column;
+.card {
+  background: yellow;
+  width: 20%;
+  height: 30%;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .body {
+    font-size: 16pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+  }
+  .card {
+    background: rgb(253, 255, 221);
+    width: 40%;
+    min-width: 30%;
+    height: 13rem;
+    margin: 1rem;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    box-shadow: inset 0.2em 0.2em 0.2em 0.2em rgba(254, 237, 0, 0.112);
+  }
+  .container {
+    /* flex-direction: Column; */
+    /* justify-content: flex-start; */
+    flex-wrap: wrap;
     justify-content: center;
+  }
+  .intro-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    
-}
+    height: 100%;
+    margin: 5rem;
+    font-size: 2rem;
+  }
+  .intro-panel h4 {
+    text-align: center;
+  }
+  .intro-panel button {
+    margin-top: 2rem;
+    height: 4rem;
+    width: 15rem;
+    font-size: 1.4rem;
+    appearance: none;
+    border: none;
+    background: rgb(0, 0, 0);
+    border-radius: 1rem;
+    color: white;
+  }
+  .button-container {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .button-container button {
+    margin: 8px;
+    appearance: none;
+    background: rgb(18, 128, 237);
+    border-radius: 1rem;
+    width: 40%;
+    min-height: 2rem;
+    color: white;
+  }
+  .card-button-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+    font-size: 1.2rem;
+  }
+  .card-button-panel button {
+    width: 20%;
+    height: 40%;
+    appearance: none;
+    background: rgb(220, 64, 64);
+    border-radius: 1rem;
+    width: 40%;
+    color: white;
+  }
+  .card-button-panel label {
+    /* font-size:1rem; */
+  }
+  .read-button-panel {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    align-items: center;
+  }
 
+  /*----------------------SWITCH-----------------------  */
 
-
-@media (min-width:600px)
-{
-    .body{
-        font-size:16pt;
-        display:flex;
-        flex-direction:column;
-        justify-content: space-between;
-        width:100vw;
-        height:100vh;
-    }
-    .card{
-        background:rgb(253, 255, 221);
-        width:40%;
-        min-width:30%;
-        height:13rem;
-        margin: 1rem;
-        font-size:1.8rem;
-        display:flex;
-        justify-content: space-around;
-        border:none;
-        box-shadow:inset .2em .2em .2em .2em rgba(254, 237, 0, 0.112);
-       
-    }
-    .container{
-        /* flex-direction: Column; */
-        /* justify-content: flex-start; */
-        flex-wrap:wrap;
-        justify-content:center;
-        
-    }
-    .intro-panel{
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height:100%;
-        margin:5rem;
-        font-size:2rem;
-    }
-    .intro-panel h4{
-        text-align: center;
-    }
-    .intro-panel button{
-        margin-top:2rem;
-        height:4rem;
-        width:15rem;
-        font-size:1.4rem;
-        appearance:none;
-        border:none;
-        background:rgb(0, 0, 0);
-        border-radius:1rem;
-        color:white;
-    }
-    .button-container{
-        height:30%;
-        width:100%;
-        display:flex;
-        justify-content: center;
-    }
-    .button-container button{
-       margin:8px;
-       appearance:none;
-       background:rgb(18, 128, 237);
-       border-radius:1rem;
-       width:40%;
-       min-height:2rem;
-       color:white;
-    }
-    .card-button-panel{
-        width:100%;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height:40%;
-        font-size:1.2rem;
-    }
-    .card-button-panel button{
-        width:20%;
-        height:40%;
-        appearance:none;
-        background:rgb(220, 64, 64);
-        border-radius:1rem;
-        width:40%;
-        color:white;
-    }
-    .card-button-panel label{
-        /* font-size:1rem; */
-    }
-    .read-button-panel{
-        display:flex;
-        justify-content: space-evenly;
-        width:70%;
-        align-items: center;
-    }
-
-
-
-
-
-    /*----------------------SWITCH-----------------------  */
-
-
-    /* The switch - the box around the slider */
-.switch {
+  .switch {
     position: relative;
     display: inline-block;
     width: 4rem;
     height: 2rem;
   }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.58rem;
+    width: 1.58rem;
+    left: 0.25rem;
+    bottom: 0.2rem;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(1.9rem);
+    -ms-transform: translateX(1.9rem);
+    transform: translateX(1.9rem);
+  }
+
+  .slider.round {
+    border-radius: 1rem;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+  .form-container {
+    height: 15%;
+    color: rgba(0, 0, 0, 0.412);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.265);
+  }
+  .form-container form {
+    width: 100%;
+    height: 80%;
+    flex: 2 2 auto;
+  }
+  .form-container ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    list-style-type: none;
+  }
+  li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+  }
+  .form-container input {
+    height: 2rem;
+    flex: 2 2 auto;
+  }
+  .form-container label {
+    font-size: 1.5rem;
+    width: 6rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .body {
+    font-size: 16pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+  }
+  .card {
+    background: rgb(253, 255, 221);
+    width: 95%;
+    height: 13rem;
+    margin: 1rem 0 0 0;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    box-shadow: inset 0.2em 0.2em 0.2em 0.2em rgba(254, 237, 0, 0.112);
+  }
+  .container {
+    flex-direction: Column;
+  }
+  .intro-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 5rem;
+    font-size: 2rem;
+  }
+  .intro-panel h4 {
+    text-align: center;
+  }
+  .intro-panel button {
+    margin-top: 2rem;
+    height: 4rem;
+    width: 15rem;
+    font-size: 1.4rem;
+    appearance: none;
+    border: none;
+    background: rgb(0, 0, 0);
+    border-radius: 1rem;
+    color: white;
+  }
+  .button-container {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .button-container button {
+    margin: 8px;
+    appearance: none;
+    background: rgb(18, 128, 237);
+    border-radius: 1rem;
+    width: 40%;
+    color: white;
+  }
+  .card-button-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+    font-size: 1.2rem;
+  }
+  .card-button-panel button {
+    width: 20%;
+    height: 40%;
+    appearance: none;
+    background: rgb(220, 64, 64);
+    border-radius: 1rem;
+    width: 40%;
+    color: white;
+  }
   
+  .read-button-panel {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    align-items: center;
+  }
+
+  /*----------------------SWITCH-----------------------  */
+
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 4rem;
+    height: 2rem;
+  }
+
   /* Hide default HTML checkbox */
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
-  
+
   /* The slider */
   .slider {
     position: absolute;
@@ -161,301 +337,83 @@ body{
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
-  
+
   .slider:before {
     position: absolute;
     content: "";
     height: 1.58rem;
     width: 1.58rem;
-    left: .25rem;
-    bottom: .20rem;
+    left: 0.25rem;
+    bottom: 0.2rem;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
-  
+
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #2196f3;
   }
-  
+
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2196f3;
   }
-  
+
   input:checked + .slider:before {
     -webkit-transform: translateX(1.9rem);
     -ms-transform: translateX(1.9rem);
     transform: translateX(1.9rem);
   }
-  
+
   /* Rounded sliders */
   .slider.round {
     border-radius: 1rem;
   }
-  
+
   .slider.round:before {
     border-radius: 50%;
-  } 
-   
-   
-   
-   /* -------------------------------------------------- */
-   
-   
-   
-   
-   
-    .form-container{
-        height:15%;
-        color:rgba(0, 0, 0, 0.412);
-        background-color: white;
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-        box-shadow: .2rem .2rem .2rem .2rem rgba(0, 0, 0, 0.265);
-    }
-    .form-container form{
-        /* height:100%; */
-        width:100%;
-        height:80%;
-        flex:2 2 auto;
-    }
-    .form-container ul{
-       display:flex;
-       flex-direction:column;
-       justify-content: space-around;
-       align-items:center;
-       height:100%;
+  }
 
-       list-style-type: none;
-    }
-    li{
-        display:flex;
-        justify-content: space-around;
-        align-items: center;
-        width:90%;
-    }
-    .form-container input{
-        height:2rem;
-        flex: 2 2 auto;
-    }
-    .form-container label{
-        font-size:1.5rem;
-        width:6rem;
-    }
-}
+  /* -------------------------------------------------- */
 
+  .form-container {
+    height: 30%;
+    color: rgba(0, 0, 0, 0.412);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.265);
+  }
+  .form-container form {
+    /* height:100%; */
+    width: 100%;
+    height: 80%;
+    flex: 2 2 auto;
+  }
+  .form-container ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
 
-
-@media (max-width:460px)
-{
-    .body{
-        font-size:16pt;
-        display:flex;
-        flex-direction:column;
-        justify-content: space-between;
-        width:100vw;
-        height:100vh;
-    }
-    .card{
-        background:rgb(253, 255, 221);
-        width:95%;
-        height:13rem;
-        margin: 1rem 0 0 0;
-        font-size:1.8rem;
-        display:flex;
-        justify-content: space-around;
-        border:none;
-        box-shadow:inset .2em .2em .2em .2em rgba(254, 237, 0, 0.112);
-       
-    }
-    .container{
-        flex-direction: Column;
-        /* justify-content: flex-start; */
-        
-    }
-    .intro-panel{
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height:100%;
-        margin:5rem;
-        font-size:2rem;
-    }
-    .intro-panel h4{
-        text-align: center;
-    }
-    .intro-panel button{
-        margin-top:2rem;
-        height:4rem;
-        width:15rem;
-        font-size:1.4rem;
-        appearance:none;
-        border:none;
-        background:rgb(0, 0, 0);
-        border-radius:1rem;
-        color:white;
-    }
-    .button-container{
-        height:30%;
-        width:100%;
-        display:flex;
-        justify-content: center;
-    }
-    .button-container button{
-       margin:8px;
-       appearance:none;
-       background:rgb(18, 128, 237);
-       border-radius:1rem;
-       width:40%;
-       color:white;
-    }
-    .card-button-panel{
-        width:100%;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height:40%;
-        font-size:1.2rem;
-    }
-    .card-button-panel button{
-        width:20%;
-        height:40%;
-        appearance:none;
-        background:rgb(220, 64, 64);
-        border-radius:1rem;
-        width:40%;
-        color:white;
-    }
-    .card-button-panel label{
-        /* font-size:1rem; */
-    }
-    .read-button-panel{
-        display:flex;
-        justify-content: space-evenly;
-        width:70%;
-        align-items: center;
-    }
-
-
-
-
-
-    /*----------------------SWITCH-----------------------  */
-
-
-    /* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 4rem;
+    list-style-type: none;
+  }
+  li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+  }
+  .form-container input {
     height: 2rem;
+    flex: 2 2 auto;
   }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  .form-container label {
+    font-size: 1.5rem;
+    width: 6rem;
   }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.58rem;
-    width: 1.58rem;
-    left: .25rem;
-    bottom: .20rem;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(1.9rem);
-    -ms-transform: translateX(1.9rem);
-    transform: translateX(1.9rem);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 1rem;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  } 
-   
-   
-   
-   /* -------------------------------------------------- */
-   
-   
-   
-   
-   
-    .form-container{
-        height:30%;
-        color:rgba(0, 0, 0, 0.412);
-        background-color: white;
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-        box-shadow: .2rem .2rem .2rem .2rem rgba(0, 0, 0, 0.265);
-    }
-    .form-container form{
-        /* height:100%; */
-        width:100%;
-        height:80%;
-        flex:2 2 auto;
-    }
-    .form-container ul{
-       display:flex;
-       flex-direction:column;
-       justify-content: space-around;
-       align-items:center;
-       height:100%;
-
-       list-style-type: none;
-    }
-    li{
-        display:flex;
-        justify-content: space-around;
-        align-items: center;
-        width:90%;
-    }
-    .form-container input{
-        height:2rem;
-        flex: 2 2 auto;
-    }
-    .form-container label{
-        font-size:1.5rem;
-        width:6rem;
-    }
 }
