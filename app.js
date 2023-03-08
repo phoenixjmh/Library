@@ -2,10 +2,13 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable linebreak-style */
 const container = document.querySelector(".container");
-const library = [];
-function Book(title, author) {
+let library = [];
+let bookIndex = 0;
+
+function Book(title, author, bookID) {
   this.author = author;
   this.title = title;
+  this.bookID = bookID;
 }
 
 Book.prototype.get = function () {
@@ -17,38 +20,36 @@ function createNewBookForm() {
   const formContainer = document.createElement("div");
   formContainer.className = "form-container";
 
-  const formElement = document.createElement('form')
-  formElement.setAttribute('action','post');
-  
+  const formElement = document.createElement("form");
+  formElement.setAttribute("action", "post");
+
   const formList = document.createElement("ul");
- 
+
   const listItem1 = document.createElement("li");
-  
+
   const authorLabel = document.createElement("label");
   authorLabel.setAttribute("for", "author-field");
-  authorLabel.textContent="Author";
-  
+  authorLabel.textContent = "Author";
+
   const authorInput = document.createElement("input");
   authorInput.setAttribute("type", "text");
   authorInput.id = "author-field";
- 
+
   const listItem2 = document.createElement("li");
- 
+
   const titleLabel = document.createElement("label");
   titleLabel.setAttribute("for", "title-label");
   titleLabel.textContent = "Title";
 
- 
   const titleInput = document.createElement("input");
   titleInput.setAttribute("type", "text");
   titleInput.id = "title-field";
- 
-  const button = document.createElement("button");
-  button.id = "add";
 
-  
-  
-  document.body.insertBefore(formContainer,container);
+  const addButton = document.createElement("button");
+  addButton.id = "add";
+  addButton.textContent = "Add Book To Library";
+
+  document.body.insertBefore(formContainer, container);
   formContainer.appendChild(formElement);
   formElement.appendChild(formList);
   formList.appendChild(listItem1);
@@ -58,39 +59,82 @@ function createNewBookForm() {
   listItem2.appendChild(titleLabel);
   listItem2.appendChild(titleInput);
 
+  formContainer.appendChild(addButton);
+
+  addButton.onclick = (event) => {
+    const newAuthor = authorInput.value;
+    const newName = titleInput.value;
+    event.preventDefault();
+
+    addBookToLibrary(newName, newAuthor, (bookIndex += 1));
+    authorInput.value = "";
+    titleInput.value = "";
+  };
 }
-function addBookToLibrary(title, author) {
-  const temp = new Book(title, author);
+function addBookToLibrary(title, author, bookID) {
+  const temp = new Book(title, author, bookID);
   library.push(temp);
-  drawBooks();
-}
-function drawBooks() {
-  for (const b in library) {
-    const cover = document.createElement("div");
-    const bookTitle = document.createElement("h4");
-    const bookAuthor = document.createElement("h4");
-    bookTitle.className = "book-title";
-    bookAuthor.className = "book-title";
-    bookTitle.textContent = library[b].title;
-    bookAuthor.textContent = library[b].author;
-
-    cover.className = "card";
-    cover.appendChild(bookTitle);
-    cover.appendChild(bookAuthor);
-    container.appendChild(cover);
-  }
+  drawBook(temp);
 }
 
-const addBookButton = document.querySelector("#add");
-const titleField = document.querySelector("#title-field");
-const authorField = document.querySelector("#author-field");
 
-addBookButton.onclick = (event) => {
-  const newName = titleField.value;
-  const newAuthor = authorField.value;
-  event.preventDefault();
+function drawBook(book) {
+  const cover = document.createElement("div");
+  const bookTitle = document.createElement("h4");
+  const bookAuthor = document.createElement("h4");
+  const deleteButton = document.createElement('button');
+  const readButtonLabel = document.createElement('label');
+  readButtonLabel.textContent='Read?';
+  readButtonLabel.setAttribute('for','read-button');
+  const readButton = document.createElement('input');
 
-  addBookToLibrary(newName, newAuthor);
-  titleField.value = "";
-  authorField.value = "";
-};
+  readButton.setAttribute('type','checkbox');
+  readButton.id = 'read-button';
+  readButton.textContent = 'Read?'
+  deleteButton.textContent = 'Remove';
+  deleteButton.id = 'delete-button';
+  bookTitle.className = "book-title";
+  bookAuthor.className = "book-title";
+  bookTitle.textContent = book.title;
+  bookAuthor.textContent = book.author;
+  
+  cover.className = "card";
+  cover.id = 'book'+book.bookID;
+  cover.appendChild(bookTitle);
+  cover.appendChild(bookAuthor);
+  cover.appendChild(deleteButton);
+  cover.appendChild(readButtonLabel);
+  cover.appendChild(readButton);
+  container.appendChild(cover);
+
+  console.log(book.bookID);
+
+  let allDeleteButtons = document.querySelectorAll('#delete-button');
+  deleteBook(allDeleteButtons);
+
+}
+
+
+createNewBookForm();
+
+
+function deleteBook(buttonList){
+
+ buttonList.forEach(function (i) {
+   i.addEventListener("click", function () {
+     
+     library = library.filter(item =>  item.bookID!=i.parentElement.id.slice(i.parentElement.id.length-1));
+     i.parentElement.remove();
+   });
+ });
+}
+
+
+
+function removeBook()
+{
+  // console.log(button.id);
+  // // const thisBook = document.querySelector.parentElement;
+  // // thisBook.remove();
+  
+}
