@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable linebreak-style */
@@ -16,6 +17,56 @@ Book.prototype.get = function () {
   tmp.push(this.title);
   tmp.push(this.author);
 };
+function deleteBook(buttonList) {
+  buttonList.forEach( i=> {
+    i.addEventListener("click", () => {
+      library = library.filter(
+        (item) =>
+          item.bookID != i.parentElement.id.slice(i.parentElement.id.length - 1)
+      );
+      i.parentElement.remove();
+    });
+  });
+}
+function drawBook(book) {
+  const cover = document.createElement("div");
+  const bookTitle = document.createElement("h4");
+  const bookAuthor = document.createElement("h4");
+  const deleteButton = document.createElement("button");
+  const readButtonLabel = document.createElement("label");
+  readButtonLabel.textContent = "Read?";
+  readButtonLabel.setAttribute("for", "read-button");
+  const readButton = document.createElement("input");
+
+  readButton.setAttribute("type", "checkbox");
+  readButton.id = "read-button";
+  readButton.textContent = "Read?";
+  deleteButton.textContent = "Remove";
+  deleteButton.id = "delete-button";
+  bookTitle.className = "book-title";
+  bookAuthor.className = "book-title";
+  bookTitle.textContent = book.title;
+  bookAuthor.textContent = book.author;
+
+  cover.className = "card";
+  cover.id = "book" + book.bookID;
+  cover.appendChild(bookTitle);
+  cover.appendChild(bookAuthor);
+  cover.appendChild(deleteButton);
+  cover.appendChild(readButtonLabel);
+  cover.appendChild(readButton);
+  container.appendChild(cover);
+
+  console.log(book.bookID);
+
+  const allDeleteButtons = document.querySelectorAll("#delete-button");
+  deleteBook(allDeleteButtons);
+}
+function addBookToLibrary(title, author, bookID) {
+  const temp = new Book(title, author, bookID);
+  library.push(temp);
+  drawBook(temp);
+}
 function createNewBookForm() {
   const formContainer = document.createElement("div");
   formContainer.className = "form-container";
@@ -71,70 +122,11 @@ function createNewBookForm() {
     titleInput.value = "";
   };
 }
-function addBookToLibrary(title, author, bookID) {
-  const temp = new Book(title, author, bookID);
-  library.push(temp);
-  drawBook(temp);
-}
 
-
-function drawBook(book) {
-  const cover = document.createElement("div");
-  const bookTitle = document.createElement("h4");
-  const bookAuthor = document.createElement("h4");
-  const deleteButton = document.createElement('button');
-  const readButtonLabel = document.createElement('label');
-  readButtonLabel.textContent='Read?';
-  readButtonLabel.setAttribute('for','read-button');
-  const readButton = document.createElement('input');
-
-  readButton.setAttribute('type','checkbox');
-  readButton.id = 'read-button';
-  readButton.textContent = 'Read?'
-  deleteButton.textContent = 'Remove';
-  deleteButton.id = 'delete-button';
-  bookTitle.className = "book-title";
-  bookAuthor.className = "book-title";
-  bookTitle.textContent = book.title;
-  bookAuthor.textContent = book.author;
-  
-  cover.className = "card";
-  cover.id = 'book'+book.bookID;
-  cover.appendChild(bookTitle);
-  cover.appendChild(bookAuthor);
-  cover.appendChild(deleteButton);
-  cover.appendChild(readButtonLabel);
-  cover.appendChild(readButton);
-  container.appendChild(cover);
-
-  console.log(book.bookID);
-
-  let allDeleteButtons = document.querySelectorAll('#delete-button');
-  deleteBook(allDeleteButtons);
-
-}
 
 
 createNewBookForm();
 
 
-function deleteBook(buttonList){
-
- buttonList.forEach(function (i) {
-   i.addEventListener("click", function () {
-     
-     library = library.filter(item =>  item.bookID!=i.parentElement.id.slice(i.parentElement.id.length-1));
-     i.parentElement.remove();
-   });
- });
-}
 
 
-
-function removeBook()
-{
-  // console.log(button.id);
-  // // const thisBook = document.querySelector.parentElement;
-  // // thisBook.remove();
-  
-}
