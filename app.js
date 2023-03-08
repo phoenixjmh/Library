@@ -5,60 +5,73 @@
 const container = document.querySelector(".container");
 let library = [];
 let bookIndex = 0;
+const startButton = document.querySelector('#add-first');
 
 function Book(title, author, bookID) {
   this.author = author;
   this.title = title;
   this.bookID = bookID;
 }
-
-Book.prototype.get = function () {
-  const tmp = [];
-  tmp.push(this.title);
-  tmp.push(this.author);
-};
+startButton.onclick=()=>{
+  startButton.parentElement.remove();
+  createNewBookForm();
+}
 function deleteBook(buttonList) {
   buttonList.forEach( i=> {
     i.addEventListener("click", () => {
       library = library.filter(
         (item) =>
-          item.bookID != i.parentElement.id.slice(i.parentElement.id.length - 1)
+        
+          item.bookID != i.parentElement.parentElement.id.slice(i.parentElement.parentElement.id.length - 1)
       );
-      i.parentElement.remove();
+      i.parentElement.parentElement.remove();
     });
   });
 }
 function drawBook(book) {
   const cover = document.createElement("div");
+  const cardButtonPanel = document.createElement('div');
+  const readButtonPanel = document.createElement('div');
+  readButtonPanel.className='read-button-panel';
+  
+  const readButtonSwitch = document.createElement('label');
+  readButtonSwitch.className = 'switch';
+  
+  
+  const readButtonSlider = document.createElement('span');
+  readButtonSlider.className='slider round';
+  
+  
+  cardButtonPanel.className = 'card-button-panel';
   const bookTitle = document.createElement("h4");
   const bookAuthor = document.createElement("h4");
   const deleteButton = document.createElement("button");
   const readButtonLabel = document.createElement("label");
-  readButtonLabel.textContent = "Read?";
+  readButtonLabel.textContent = "Already Read";
   readButtonLabel.setAttribute("for", "read-button");
   const readButton = document.createElement("input");
-
   readButton.setAttribute("type", "checkbox");
   readButton.id = "read-button";
   readButton.textContent = "Read?";
   deleteButton.textContent = "Remove";
   deleteButton.id = "delete-button";
   bookTitle.className = "book-title";
-  bookAuthor.className = "book-title";
+  bookAuthor.className = "author-title";
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
-
   cover.className = "card";
   cover.id = "book" + book.bookID;
   cover.appendChild(bookTitle);
   cover.appendChild(bookAuthor);
   cover.appendChild(deleteButton);
-  cover.appendChild(readButtonLabel);
-  cover.appendChild(readButton);
+  cover.appendChild(cardButtonPanel);
+  cardButtonPanel.appendChild(readButtonPanel);
+  cardButtonPanel.appendChild(deleteButton);
+  readButtonPanel.appendChild(readButtonLabel);
+  readButtonPanel.appendChild(readButtonSwitch);
+  readButtonSwitch.appendChild(readButton);
+  readButtonSwitch.appendChild(readButtonSlider);
   container.appendChild(cover);
-
-  console.log(book.bookID);
-
   const allDeleteButtons = document.querySelectorAll("#delete-button");
   deleteBook(allDeleteButtons);
 }
@@ -98,7 +111,10 @@ function createNewBookForm() {
 
   const addButton = document.createElement("button");
   addButton.id = "add";
-  addButton.textContent = "Add Book To Library";
+  addButton.textContent = "+ Add Book To Library";
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'button-container';
 
   document.body.insertBefore(formContainer, container);
   formContainer.appendChild(formElement);
@@ -110,7 +126,8 @@ function createNewBookForm() {
   listItem2.appendChild(titleLabel);
   listItem2.appendChild(titleInput);
 
-  formContainer.appendChild(addButton);
+  formContainer.appendChild(buttonContainer);
+  buttonContainer.appendChild(addButton);
 
   addButton.onclick = (event) => {
     const newAuthor = authorInput.value;
@@ -123,9 +140,16 @@ function createNewBookForm() {
   };
 }
 
+const temptitle = 'title';
+const tempauthor = 'author';
+let counter = 0;
 
+// createNewBookForm();
+// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
+// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
+// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
+// addBookToLibrary(temptitle + String(counter+=1),tempauthor,(bookIndex+=1));
 
-createNewBookForm();
 
 
 
