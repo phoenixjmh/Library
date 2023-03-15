@@ -53,8 +53,6 @@ body {
     box-shadow: inset 0.2em 0.2em 0.2em 0.2em rgba(254, 237, 0, 0.112);
   }
   .container {
-    /* flex-direction: Column; */
-    /* justify-content: flex-start; */
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -114,17 +112,13 @@ body {
     width: 40%;
     color: white;
   }
-  .card-button-panel label {
-    /* font-size:1rem; */
-  }
+
   .read-button-panel {
     display: flex;
     justify-content: space-evenly;
     width: 70%;
     align-items: center;
   }
-
-  /*----------------------SWITCH-----------------------  */
 
   .switch {
     position: relative;
@@ -184,7 +178,6 @@ body {
   .slider.round:before {
     border-radius: 50%;
   }
-
 
   .form-container {
     height: 15%;
@@ -303,7 +296,7 @@ body {
     width: 40%;
     color: white;
   }
-  
+
   .read-button-panel {
     display: flex;
     justify-content: space-evenly;
@@ -311,9 +304,6 @@ body {
     align-items: center;
   }
 
-  /*----------------------SWITCH-----------------------  */
-
-  /* The switch - the box around the slider */
   .switch {
     position: relative;
     display: inline-block;
@@ -321,14 +311,12 @@ body {
     height: 2rem;
   }
 
-  /* Hide default HTML checkbox */
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
 
-  /* The slider */
   .slider {
     position: absolute;
     cursor: pointer;
@@ -367,7 +355,6 @@ body {
     transform: translateX(1.9rem);
   }
 
-  /* Rounded sliders */
   .slider.round {
     border-radius: 1rem;
   }
@@ -375,8 +362,6 @@ body {
   .slider.round:before {
     border-radius: 50%;
   }
-
-  /* -------------------------------------------------- */
 
   .form-container {
     height: 30%;
@@ -388,7 +373,6 @@ body {
     box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.265);
   }
   .form-container form {
-    /* height:100%; */
     width: 100%;
     height: 80%;
     flex: 2 2 auto;
