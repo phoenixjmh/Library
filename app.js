@@ -136,9 +136,7 @@ deleteBook = (buttonList)=> {
 
 
 startButton.onclick = () => {
-  alert('well');
 startButton.parentElement.remove();
-
 let thisLibrary=new Library();
 thisLibrary.createNewBookForm();
 };
